@@ -2,16 +2,18 @@
 // plugins
 ////////////////////
 
-/* this thing */
+/* _this_ thing */
 const gulp = require('gulp');
 const debug = require('gulp-debug');
-/* removal of stuff */
+/* removal of stuff (aka, make clean :p) */
 const del = require('del');
+/* talk to the browser (aka, reload it on file changes) */
 const browserSync = require('browser-sync').create();
 
 /* babel = using those es6 / ECMAScript 2015 features */
-/* babelify = babel that works easily with browserify*/
+/* babelify = babel that works easily with browserify */
 const babelify = require('babelify');
+/* browserify = packages & bundles requires for distribution */
 const browserify = require('browserify');
 
 /* some plugins used expect vinyl file objects / streams */
