@@ -1,0 +1,25 @@
+{
+  "name": "test-web-stuff",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.12.5",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^2.1.2",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
