@@ -27,7 +27,11 @@ var HelloWorld = React.createClass({
   render() {
     return (
       <div className='test2'>
-        <p>test class</p>
+      <p>dynamic content (React w/ JSX + es6)</p>
+      <p>
+      make some changes to the static content (*.html), or this *.js,
+      and watch it auto update on change!
+      </p>
       </div>
     )
   },
