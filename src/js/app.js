@@ -1,43 +1,38 @@
 let React = require('react');
 let ReactDOM = require('react-dom');
 
-let a = ['a', 'b', 'c'];
+let Comment = require('./components/comment.js').Comment;
+let CommentList = require('./components/comment.js').CommentList;
+let CommentBox = require('./components/comment.js').CommentBox;
+let CommentForm = require('./components/comment.js').CommentForm;
 
-let f = v => v + '_stuff';
+/* let a = ['a', 'b', 'c'];
 
-let f2 = () => {
-  console.log('test');
-}
+   let f = v => v + '_stuff';
 
-f2();
+   let f2 = () => {
+   console.log('test');
+   }
 
-var bob = {
-  _name: "Bob",
-  _friends: ["test", "test2", "test4"],
-  printFriends() {
-    this._friends.forEach(
-      f => console.log(this._name + " knows " + f)
-    );
-  }
-};
+   f2();
 
-bob.printFriends();
+   var bob = {
+   _name: "Bob",
+   _friends: ["test", "test2", "test4"],
+   printFriends() {
+   this._friends.forEach(
+   f => console.log(this._name + " knows " + f)
+   );
+   }
+   };
 
-var HelloWorld = React.createClass({
-  render() {
-    return (
-      <div className='test2'>
-      <p>dynamic content (React w/ JSX + es6)</p>
-      <p>
-      make some changes to the static content (*.html), or this *.js,
-      and watch it auto update on change!
-      </p>
-      </div>
-    )
-  },
-});
+   bob.printFriends(); */
+
+var data = [
+  {id: 1, author: "Pete Hunt", text: "comment stuff"},
+];
 
 ReactDOM.render(
-  <HelloWorld />,
+  <CommentBox />,
   document.getElementById('app')
 );
