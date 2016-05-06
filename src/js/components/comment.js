@@ -1,7 +1,13 @@
 let React = require('react');
 let ReactDOM = require('react-dom');
 
-let Comment = React.createClass({
+///////// Intended component hierarchy
+// - CommentBox
+//   - CommentList
+//     - Comment...
+//   - CommentForm
+
+let Comment = React.createClass( {
   render() {
     return (
       <div className="comment">
@@ -10,38 +16,47 @@ let Comment = React.createClass({
         </h2>
         {this.props.children}
       </div>
-    )
-  }
-});
-
-let CommentList = React.createClass({
-  render() {
-    return (
-      <div>
-        <Comment author='authorname1'>a comment</Comment>
-        <Comment author='authorname2'></Comment>
-        <Comment author='authorname3'></Comment>
-      </div>
-    )
+    );
   },
 });
 
-let CommentForm = React.createClass({
+let CommentList = React.createClass( {
+  render() {
+    var commentNodes = this.props.data.map( (comment) => {
+      return (
+        <Comment author={comment.author} key={comment.id}>
+          {comment.text}
+        </Comment>
+      );
+    });
+    return (
+      <div className="commentList">
+        {commentNodes}
+      </div>
+    );
+  },
+});
+
+let CommentForm = React.createClass( {
   render() {
     return (
       <div className="commentForm">
-        Hello, world! I am a CommentForm.
+        I am a CommentForm.
       </div>
-    )
+    );
   },
 });
 
-let CommentBox = React.createClass({
+let CommentBox = React.createClass( {
+  getInitialState() {
+    return {data: []};
+  },
+
   render() {
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentList />
+        <CommentList data={this.state.data}/>
         <CommentForm />
       </div>
     );

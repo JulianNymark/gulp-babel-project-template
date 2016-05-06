@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'helper';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.commentBox {
+  background-color: $color-primary;
+  @include border-radius(20px);
+
+  margin: 10px;
+  padding: 20px;
+
+  div {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .commentList {
+    .comment {
+      border-left: 5px solid $color-secondary;
+
+
+    }
+  }
+
+  .commentForm {
+
+  }
+}

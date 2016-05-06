@@ -1,4 +1,4 @@
-const state = 'development'; // production || development
+const state = 'development'; // production || development (remember to do a ctrl-f 'prodection')
 
 ////////////////////
 // plugins
@@ -8,6 +8,7 @@ const state = 'development'; // production || development
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const sass = require('gulp-sass');
 /* removal of stuff (aka, make clean :p) */
 const del = require('del');
 /* talk to the browser (aka, reload it on file changes) */
@@ -30,7 +31,9 @@ const glob = require('glob');
 
 let path = {
   JS_MAIN: 'src/js/app.js',
-  JS: 'src/js/**/*.js', // all js files
+  JS: 'src/js/**',
+  SASS: 'src/sass/**',
+  CSS: 'dist/css',
   STATIC: 'src/static/**',
   DEST: 'dist',
   init() {
@@ -50,6 +53,9 @@ let path = {
 gulp.watch(path.STATIC).on('change', browserSync.reload);
 /* js content changes = rebundle & reload browserSync */
 gulp.watch(path.JS, ['js-reload']);
+/* watch for sass / scss changes */
+gulp.watch(path.SASS, ['sass']);
+
 
 ////////////////////
 // tasks
@@ -62,7 +68,7 @@ gulp.task('js-reload', ['everything'], () => {
   browserSync.reload();
 });
 
-gulp.task('everything', ['babelify', 'copy']);
+gulp.task('everything', ['babelify', 'copy', 'sass']);
 
 gulp.task('babelify', () => {
   let bundler = browserify(path.JS_MAIN, { debug: true });
@@ -73,8 +79,8 @@ gulp.task('babelify', () => {
                 .on('error', function(err) { console.error(err); this.emit('end'); })
                 .pipe(source('bundle.js'))
                 .pipe(buffer())
-//                .pipe(concat('bundle.min.js'))
-//                .pipe(uglify())
+    //                .pipe(concat('bundle.min.js'))  // uncomment for production (change all refs to bundle.min.js as well!)
+    //                .pipe(uglify()) // uncomment for production
                 .pipe(gulp.dest(path.DEST));
 });
 
@@ -98,13 +104,20 @@ gulp.task('browser-sync', () => {
   });
 });
 
-gulp.task('set-env', function() {
+gulp.task('set-env', () => {
   return process.env.NODE_ENV = state;
+});
+
+gulp.task('sass', () => {
+  return gulp.src(path.SASS)
+             .pipe(sass().on('error', sass.logError))
+             .pipe(gulp.dest(path.CSS))
+             .pipe(browserSync.stream()); // DOES NOT WORK?? seems to just reload()
 });
 
 /**
  * Cleaning dist/ folder
  */
 gulp.task('clean', () => {
-  return del(['dist/**']);
+  return del([path.DEST]);
 });

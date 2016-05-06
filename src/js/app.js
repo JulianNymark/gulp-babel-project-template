@@ -1,38 +1,40 @@
 let React = require('react');
 let ReactDOM = require('react-dom');
 
-let Comment = require('./components/comment.js').Comment;
-let CommentList = require('./components/comment.js').CommentList;
 let CommentBox = require('./components/comment.js').CommentBox;
-let CommentForm = require('./components/comment.js').CommentForm;
 
-/* let a = ['a', 'b', 'c'];
-
-   let f = v => v + '_stuff';
-
-   let f2 = () => {
-   console.log('test');
-   }
-
-   f2();
-
-   var bob = {
-   _name: "Bob",
-   _friends: ["test", "test2", "test4"],
-   printFriends() {
-   this._friends.forEach(
-   f => console.log(this._name + " knows " + f)
-   );
-   }
-   };
-
-   bob.printFriends(); */
-
-var data = [
-  {id: 1, author: "Pete Hunt", text: "comment stuff"},
+let commentData = [
+  {id: 1, author: "test name42", text: "comment stuff"},
+  {id: 2, author: "test name", text: "comment stuff comment stuff comment stuff comment stuff comment stuff"},
+  {id: 3, author: "more test", text: "comment stuff"},
+  {id: 4, author: "some guy", text: "comment stuff"},
 ];
 
-ReactDOM.render(
+let domCommentBox = ReactDOM.render(
   <CommentBox />,
-  document.getElementById('app')
+  document.getElementById('comments-box')
 );
+
+// + fetch from server with componentDidMount + ajax
+domCommentBox.setState({data: commentData});
+
+///
+
+window.dcb = domCommentBox;
+window.react = React;
+window.reactDOM = ReactDOM;
+
+
+/* setTimeout( () => {
+   ReactDOM.unmountComponentAtNode(
+   document.getElementById('comments-box')
+   );
+   }, 1500);
+
+
+   setTimeout( () => {
+   ReactDOM.render(
+   <CommentBox data={commentData}/>,
+   document.getElementById('comments-box')
+   );
+   }, 2500); */
