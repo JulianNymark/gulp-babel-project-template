@@ -41,7 +41,11 @@ let CommentForm = React.createClass( {
   render() {
     return (
       <div className="commentForm">
-        I am a CommentForm.
+        <input type="text" placeholder="Your name" />
+        <br/>
+        <textarea type="text" placeholder="Say something..." />
+        <br/>
+        <input type="submit" value="Post" />
       </div>
     );
   },

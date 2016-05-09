@@ -112,7 +112,7 @@ gulp.task('sass', () => {
   return gulp.src(path.SASS)
              .pipe(sass().on('error', sass.logError))
              .pipe(gulp.dest(path.CSS))
-             .pipe(browserSync.stream()); // DOES NOT WORK?? seems to just reload()
+             .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 /**

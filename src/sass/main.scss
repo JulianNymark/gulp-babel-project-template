@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  @include border-radius(20px);
 }
 
 .commentBox {
@@ -23,11 +24,35 @@
     .comment {
       border-left: 5px solid $color-secondary;
 
-
+      &:hover{
+        border-left: 5px solid darken($color-secondary, 50%);
+      }
     }
   }
 
   .commentForm {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 
+    //background-color: darken($color-primary, 5%);
+    border: 2px dashed darken($color-primary, 20%);
+
+
+    input[type='text'] {
+      align-self: stretch;
+    }
+
+    input[type='Submit'] {
+      background-color: darken($color-primary, 20%);
+      padding: 20px 50px;
+    }
+
+    * {
+      margin: 10px;
+      padding: 10px 20px;
+      resize: vertical;
+      align-self: flex-start;
+    }
   }
 }
