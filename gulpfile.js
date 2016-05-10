@@ -1,3 +1,4 @@
+"use strict";
 const state = 'development'; // production || development (remember to do a ctrl-f 'prodection')
 
 ////////////////////

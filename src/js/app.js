@@ -6,7 +6,7 @@ let CommentBox = require('./components/comment.js').CommentBox;
 let commentData = [
   {id: 1, author: "test name42", text: "comment stuff"},
   {id: 2, author: "test name", text: "comment stuff comment stuff comment stuff comment stuff comment stuff"},
-  {id: 3, author: "more test", text: "comment stuff"},
+  {id: 3, author: "more test", text: "comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff comment stuff "},
   {id: 4, author: "some guy", text: "comment stuff"},
 ];
 
