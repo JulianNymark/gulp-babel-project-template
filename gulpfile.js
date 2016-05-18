@@ -1,5 +1,5 @@
 "use strict";
-const state = 'development'; // production || development (remember to do a ctrl-f 'prodection')
+const state = 'development'; // production || development (remember to do a ctrl-f 'production')
 
 ////////////////////
 // plugins
