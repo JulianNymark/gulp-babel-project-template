@@ -33,7 +33,7 @@ const glob = require('glob');
 let path = {
   JS_MAIN: 'src/js/app.js',
   JS: 'src/js/**',
-  SASS: 'src/sass/**',
+  SASS_MAIN: 'src/sass/main.scss',
   CSS: 'dist/css',
   STATIC: 'src/static/**',
   DEST: 'dist',
@@ -110,7 +110,7 @@ gulp.task('set-env', () => {
 });
 
 gulp.task('sass', () => {
-  return gulp.src(path.SASS)
+  return gulp.src(path.SASS_MAIN)
              .pipe(sass().on('error', sass.logError))
              .pipe(gulp.dest(path.CSS))
              .pipe(browserSync.stream({match: '**/*.css'}));
